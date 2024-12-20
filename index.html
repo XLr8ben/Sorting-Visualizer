@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Sorting Visualizer</h1>
+    <div class="controls">
+      <button onclick="generateArray()">Generate New Array</button>
+      <button onclick="playbubbleSort()">Bubble Sort</button>
+      <button onclick="playselectionSort()">Selection Sort</button>
+      <input type="range" id="speedSlider" min="1" max="100" value="50">
+      <label for="speedSlider">Speed</label>
+      <input type="range" id="sizeSlider" min="1" max="100" value="50">
+      <label for="sizeSlider">Size</label>
+    </div>
+  </header>
+  <div id="visualizer"></div>
+  <script src="script.js"></script>
+</body>
+</html>
