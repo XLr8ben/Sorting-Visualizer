@@ -1,6 +1,6 @@
 let size=50;
 let array =[];
-let speed=50;
+let speed=10;
 let audioCtx=null;
 
 generateArray();
@@ -79,6 +79,8 @@ function animate(swaps) {
     }, speed);
 }
 
+
+
 function playbubbleSort(){
     const copy=[...array];
     bubbleSort(copy);
@@ -89,6 +91,12 @@ function playselectionSort(){
     const copy=[...array];
     selectionSort(copy);
 }
+
+function playinsertionSort(){
+    const copy=[...array];
+    insertionSort(copy);
+}
+
 
 function bubbleSort(array) {
     const swaps = [];
@@ -128,11 +136,28 @@ function selectionSort(array){
     let min=i;
     for(let j=i+1;j<=array.length-1;j++){
         if(array[j]<array[min]){
-            swaps.push([j,min]);
-            [array[j],array[min]] = [array[min],array[j]];
+            min=j;
         }
     }
+    [array[i],array[min]] = [array[min],array[i]];
+    swaps.push([i,min]);
 }
+animate(swaps);
+}
+
+function insertionSort(array){
+    const swaps=[];
+    for(let i=0;i<=array.length-1;i++){
+        let temp=array[i];
+        let j=i-1;
+        while(j>=0 && array[j]>temp){
+                array[j+1]=array[j];
+                j--;
+                swaps.push([j,j+1]);
+            }
+            array[j+1]=temp;        
+            swaps.push([j,i]);
+    }    
 animate(swaps);
 }
 
